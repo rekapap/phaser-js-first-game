@@ -3,7 +3,7 @@ var config = {
   width: 800, // dimensions
   height: 600,
   physics: {
-    default: 'arcade',
+    default: 'arcade', // Arcade Physics system
     arcade: {
         gravity: {y: 300 },
         debug: false
@@ -16,6 +16,9 @@ var config = {
   }
 };
 
+var platforms;
+var player;
+
 var game = new Phaser.Game(config); // "starts" Phaser
 
 function preload () // calls to Phaser Loader inside of the Scene function 'preload'
@@ -24,7 +27,7 @@ function preload () // calls to Phaser Loader inside of the Scene function 'prel
   this.load.image('ground', 'assets/platform.png');
   this.load.image('star', 'assets/star.png');
   this.load.image('bomb', 'assets/bomb.png');
-  this.load.spritesheet('dude',
+  this.load.spritesheet('dude', // loaded as a spritesheet
       'assets/dude.png',
       { frameWidth: 32, frameHeight: 48 }
   );
@@ -44,6 +47,34 @@ function create ()
   platforms.create(600, 400, 'ground');
   platforms.create(50, 250, 'ground');
   platforms.create(750, 220, 'ground');
+
+  // player Physics Sprite
+  player = this.physics.add.sprite(100, 450, 'dude'); // through Physics Game Object Factory: this.physics.add // has a Dynamic Physics body by def
+
+  player.setBounce(0.2);
+  player.setCollideWorldBounds(true); // prevent from the player to 'run' out of the screen
+
+  // player animations
+  // Animation Manager is a global system -> animations are globally available to all Game Objects
+  this.anims.create({
+      key: 'left',
+      frames: this.anims.generateFrameNumbers('dude', { start: 0, end: 3}),
+      frameRate: 10,
+      repeat: -1 // looping
+  });
+
+  this.anims.create({
+      key: 'turn',
+      frames: [ { key: 'dude', frame: 4 } ],
+      frameRate: 20
+  });
+
+  this.anims.create({
+      key: 'right',
+      frames: this.anims.generateFrameNumbers('dude', { start: 5, end: 8 }),
+      frameRate: 10,
+      repeat: -1
+  });
 }
 
 function update ()

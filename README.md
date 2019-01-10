@@ -1,7 +1,7 @@
-# 2D Game with Phase.js
+# 2D Game with Phaser.js
 
-A 2D platform game made with Phase.js
-Using the Phase.js Making your first game tutorial(https://phaser.io/tutorials/making-your-first-phaser-3-game)
+A 2D platform game made with Phaser 3
+Using the Phaser.js Making your first game tutorial(https://phaser.io/tutorials/making-your-first-phaser-3-game)
 
 ## Setup
 

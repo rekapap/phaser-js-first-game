@@ -53,6 +53,7 @@ function create ()
 
   player.setBounce(0.2);
   player.setCollideWorldBounds(true); // prevent from the player to 'run' out of the screen
+  player.body.setGravityY(300); // adds Gravity to player
 
   // player animations
   // Animation Manager is a global system -> animations are globally available to all Game Objects
@@ -75,6 +76,8 @@ function create ()
       frameRate: 10,
       repeat: -1
   });
+
+  this.physics.add.collider(player, platforms); // collider object => It takes two objects and tests for collision and performs separation against them
 }
 
 function update ()

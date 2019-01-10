@@ -102,6 +102,8 @@ function create ()
 
   // bombs
   bombs = this.physics.add.group();
+
+  this.physics.add.collider(bombs, platforms);
 }
 
 function update ()

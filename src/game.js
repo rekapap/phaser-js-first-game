@@ -1,15 +1,15 @@
 var config = {
-  type: Phaser.AUTO,
-  width: 800,
+  type: Phaser.AUTO, // renderer
+  width: 800, // dimensions
   height: 600,
-  scene: {
+  scene: { // default scene
       preload: preload,
       create: create,
       update: update
   }
 };
 
-var game = new Phaser.Game(config);
+var game = new Phaser.Game(config); // "starts" Phaser
 
 function preload ()
 {

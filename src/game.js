@@ -21,6 +21,7 @@ var player;
 var stars;
 var score = 0;
 var scoreText;
+var bombs;
 
 var game = new Phaser.Game(config); // "starts" Phaser
 
@@ -98,6 +99,9 @@ function create ()
 
   // score text
   scoreText = this.add.text(16, 16, 'Score: 0', { fontSize: '32px', fill: '#000' });
+
+  // bombs
+  bombs = this.physics.add.group();
 }
 
 function update ()

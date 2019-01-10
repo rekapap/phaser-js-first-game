@@ -3,6 +3,9 @@
 A 2D platform game made with Phaser 3
 Using the Phaser.js Making your first game tutorial(https://phaser.io/tutorials/making-your-first-phaser-3-game)
 
+
+![Game screenshot](./assets/screenshot.png "Game screenshot")
+
 ## Setup
 
 0. You need to have Node.js installed for this project.

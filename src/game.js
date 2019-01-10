@@ -53,7 +53,7 @@ function create ()
 
   player.setBounce(0.2);
   player.setCollideWorldBounds(true); // prevent from the player to 'run' out of the screen
-  player.body.setGravityY(300); // adds Gravity to player
+  // player.body.setGravityY(300); // adds Gravity to player
 
   // player animations
   // Animation Manager is a global system -> animations are globally available to all Game Objects
@@ -82,4 +82,23 @@ function create ()
 
 function update ()
 {
+  var cursors = this.input.keyboard.createCursorKeys();
+
+  if (cursors.left.isDown) {
+    player.setVelocityX(-160);
+    player.anims.play('left', true)
+  }
+  else if (cursors.right.isDown) {
+    player.setVelocityX(160);
+    player.anims.play('right', true);
+  }
+  else {
+    player.setVelocityX(0);
+    player.anims.play('turn');
+  }
+
+  if (cursors.up.isDown && player.body.touching.down){
+    player.setVelocityY(-330);
+  }
+
 }

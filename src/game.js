@@ -25,6 +25,8 @@ function preload () // calls to Phaser Loader inside of the Scene function 'prel
 
 function create ()
 {
+  this.add.image(0, 0, 'sky').setOrigin(0, 0); // new Image Game Object; adds to the current Scenes display list
+  this.add.image(400, 300, 'star');
 }
 
 function update ()

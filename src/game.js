@@ -104,6 +104,7 @@ function create ()
   bombs = this.physics.add.group();
 
   this.physics.add.collider(bombs, platforms);
+  this.physics.add.collider(player, bombs, hitBomb, null, this);
 }
 
 function update ()
@@ -134,4 +135,11 @@ function collectStar (player, star){
 
   score += 10;
   scoreText.setText('Score: ' + score);
+}
+
+function hitBomb (player, bomb) {
+  this.physics.pause();
+  player.setTint(0xff0000);
+  player.anims.play('turn');
+  gameOver = true;
 }

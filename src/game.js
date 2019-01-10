@@ -19,6 +19,8 @@ var config = {
 var platforms;
 var player;
 var stars;
+var score = 0;
+var scoreText;
 
 var game = new Phaser.Game(config); // "starts" Phaser
 
@@ -80,6 +82,7 @@ function create ()
 
   this.physics.add.collider(player, platforms); // collider object => It takes two objects and tests for collision and performs separation against them
 
+  // stars
   stars = this.physics.add.group({
     key: 'star',
     repeat: 11,
@@ -92,6 +95,9 @@ function create ()
 
   this.physics.add.collider(stars, platforms);
   this.physics.add.overlap(player, stars, collectStar, null, this);
+
+  // score text
+  scoreText = this.add.text(16, 16, 'score: 0', { fontSize: '32px', fill: '#000' });
 }
 
 function update ()

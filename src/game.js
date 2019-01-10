@@ -18,6 +18,7 @@ var config = {
 
 var platforms;
 var player;
+var stars;
 
 var game = new Phaser.Game(config); // "starts" Phaser
 
@@ -78,6 +79,17 @@ function create ()
   });
 
   this.physics.add.collider(player, platforms); // collider object => It takes two objects and tests for collision and performs separation against them
+
+  stars = this.physics.add.group({
+    key: 'star',
+    repeat: 11,
+    setXY: { x: 12, y: 0, stepX: 70 }
+  });
+
+  stars.children.iterate( child => {
+    child.setBounceY(Phaser.Math.FloatBetween(0.4, 0.8));
+  });
+
 }
 
 function update ()

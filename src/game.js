@@ -35,10 +35,10 @@ function create ()
   this.add.image(0, 0, 'sky').setOrigin(0, 0); // new Image Game Object; adds to the current Scenes display list
 
   // platforms
-  platforms = this.physics.add.staticGroup();
+  platforms = this.physics.add.staticGroup(); // static Group; physics: automatically create physics enabled children
 
   // backdrop platform
-  platforms.create(400, 568, 'ground').setScale(2).refreshBody();
+  platforms.create(400, 568, 'ground').setScale(2).refreshBody(); // create Game Objects // refreshBody() is required because of scaling a static physics body
 
   // floating platforms
   platforms.create(600, 400, 'ground');

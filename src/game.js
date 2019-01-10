@@ -91,6 +91,7 @@ function create ()
   });
 
   this.physics.add.collider(stars, platforms);
+  this.physics.add.overlap(player, stars, collectStar, null, this);
 }
 
 function update ()
@@ -114,4 +115,8 @@ function update ()
     player.setVelocityY(-330);
   }
 
+}
+
+function collectStar (player, star){
+  star.disableBody(true, true);
 }

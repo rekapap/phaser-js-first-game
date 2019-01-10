@@ -2,6 +2,13 @@ var config = {
   type: Phaser.AUTO, // renderer
   width: 800, // dimensions
   height: 600,
+  physics: {
+    default: 'arcade',
+    arcade: {
+        gravity: {y: 300 },
+        debug: false
+    }
+  },
   scene: { // default scene
       preload: preload,
       create: create,
@@ -26,7 +33,17 @@ function preload () // calls to Phaser Loader inside of the Scene function 'prel
 function create ()
 {
   this.add.image(0, 0, 'sky').setOrigin(0, 0); // new Image Game Object; adds to the current Scenes display list
-  this.add.image(400, 300, 'star');
+
+  // platforms
+  platforms = this.physics.add.staticGroup();
+
+  // backdrop platform
+  platforms.create(400, 568, 'ground').setScale(2).refreshBody();
+
+  // floating platforms
+  platforms.create(600, 400, 'ground');
+  platforms.create(50, 250, 'ground');
+  platforms.create(750, 220, 'ground');
 }
 
 function update ()

@@ -13,19 +13,13 @@ Using the Phaser.js Making your first game tutorial(https://phaser.io/tutorials/
 npm install -g http-server
 ```
 
-2. Install SASS.
-
-```bash
-npm install -g sass
-```
-
-3. Run the server.
+2. Run the server.
 
 ```bash
 http-server
 ```
 
-4. In your browser open the page:
+3. In your browser open the page:
 ```
 http://localhost:8080/
 ```
@@ -37,4 +31,3 @@ http://localhost:8080/
 
 1. Phase homepage(https://phaser.io/)
 2. Node.js homepage(https://nodejs.org/en/)
-3. SASS homepage(https://sass-lang.com/)
